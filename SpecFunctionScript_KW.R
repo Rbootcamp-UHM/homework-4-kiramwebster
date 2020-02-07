@@ -1,9 +1,9 @@
 # Script to analyze spectrophotometer files
 ## By Kira Webster 
 
-setwd("C:/Users/kiram/Documents/Rclass/homework-4-kiramwebster")	#will be different for everyone
+#setwd("C:/Users/kiram/Documents/Rclass/homework-4-kiramwebster")	#will be different for everyone
  
-myfiles <- list.files(path = "Data", pattern=".txt") 	#pulling only the text files out of the data folder. Will be different for everyone so will need a different path
+myfiles <- list.files(path = "Data", pattern=".txt") 	#pulling only the text files out of the data folder
 nfiles <- length(myfiles)	
 df <- data.frame(matrix(NA, nrow = nfiles, ncol = 3))	#creating empty dataframe the length of the number of files
 col_headings <- c("file","max.intensity","lambda")
@@ -37,4 +37,4 @@ for(i in 1:nfiles){
   }
   dev.off()
 
-write.csv(df,"Data\\homework4_KW.csv", row.names = F) 	#writting a csv from the dataframe created. Will be different for everyone because this is where it will be saved
+write.csv(df,"Data\\homework4.csv", row.names = F) 	#writting a csv from the dataframe created
