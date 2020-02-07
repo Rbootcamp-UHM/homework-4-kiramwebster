@@ -1,9 +1,9 @@
 # Script to analyze spectrophotometer files
 ## By Kira Webster 
 
-#setwd("C:/Users/kiram/Documents/Rclass/homework-4-kiramwebster")	#will be different for everyone
+setwd("C:/Users/kiram/Documents/Rclass/homework-4-kiramwebster")	#will be different for everyone
  
-myfiles <- list.files(path = "C:/Users/kiram/Documents/Rclass/homework-4-kiramwebster/Data",pattern=".txt") 	#pulling only the text files out of the data folder. Will be different for everyone so will need a different path
+myfiles <- list.files(path = "Data", pattern=".txt") 	#pulling only the text files out of the data folder. Will be different for everyone so will need a different path
 nfiles <- length(myfiles)	
 df <- data.frame(matrix(NA, nrow = nfiles, ncol = 3))	#creating empty dataframe the length of the number of files
 col_headings <- c("file","max.intensity","lambda")
@@ -17,9 +17,6 @@ read.spec <- function ( myfiles )  {
 	return (dat)
 }
 
-read.spec
-dat <- read.spec(dat)		#setting dat
-
 #plotting myfiles
 plot.spec <- function( X ) {
   plot(X, type="l")
@@ -28,7 +25,6 @@ plot.spec <- function( X ) {
   points(x=l,y=max,type="p",col="red",pch=19,cex=2)
 } 
 
-plot.spec(dat)		#plotting dat
 
 #creating pdf wrapper on the forloop. For every loop the graph it creates gets put into the pdf on a new page, not a new file. Every loop also generates a line that is put into the dataframe previously created.
 pdf(file=paste("Spectrophotometer Graphs", ".pdf", sep=""), onefile=T) 
@@ -41,4 +37,4 @@ for(i in 1:nfiles){
   }
   dev.off()
 
-write.csv(df,"C:/Users/kiram/Documents/Rclass/homework-4-kiramwebster\\homework4.csv", row.names = F) 	#writting a csv from the dataframe created. Will be different for everyone because this is where it will be saved
+write.csv(df,"Data\\homework4_KW.csv", row.names = F) 	#writting a csv from the dataframe created. Will be different for everyone because this is where it will be saved
