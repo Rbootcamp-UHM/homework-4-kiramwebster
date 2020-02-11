@@ -1,7 +1,7 @@
 # Script to analyze spectrophotometer files
 ## By Kira Webster 
 
-#setwd("C:/Users/kiram/Documents/Rclass/homework-4-kiramwebster")	#will be different for everyone
+#setwd("C:/Users/kiram/Documents/Rclass/homework-4-kiramwebster")	#will be different for everyone 
  
 myfiles <- list.files(path = "Data", pattern=".txt") 	#pulling only the text files out of the data folder
 nfiles <- length(myfiles)	
@@ -26,8 +26,8 @@ plot.spec <- function( X ) {
 } 
 
 
-#creating pdf wrapper on the forloop. For every loop the graph it creates gets put into the pdf on a new page, not a new file. Every loop also generates a line that is put into the dataframe previously created.
-pdf(file=paste("Spectrophotometer Graphs", ".pdf", sep=""), onefile=T) 
+#creating pdf wrapper on the forloop. For every loop, the graph it creates gets put into the pdf on a new page, not a new file. Every loop also generates a line that is put into the dataframe previously created.
+pdf(file=paste("Spectrophotometer_Graphs", ".pdf", sep=""), onefile=T) 
 for(i in 1:nfiles){
   dat <- read.spec(paste0("Data/", myfiles[i]))
   plot.spec(dat)
@@ -37,4 +37,5 @@ for(i in 1:nfiles){
   }
   dev.off()
 
-write.csv(df,"Data\\homework4.csv", row.names = F) 	#writting a csv from the dataframe created
+#write.csv(df,"Output\\homework4_KW.csv", row.names = F) 	#writting a csv from the dataframe created. The csv is put in my folder titled Output, but will be different for everyone
+
